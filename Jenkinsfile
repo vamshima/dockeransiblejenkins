@@ -26,6 +26,7 @@ pipeline{
             }
         }
         
+        
         stage('DockerHub Push'){
             steps{
                 withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhub')]) {
