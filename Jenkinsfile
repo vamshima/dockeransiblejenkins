@@ -22,7 +22,7 @@ pipeline{
         
         stage('Docker Build'){
             steps{
-                sh "docker build . -t vamshima:${DOCKER_TAG} "
+                sh "sudo docker build . -t vamshima:${DOCKER_TAG} "
             }
         }
         
@@ -30,10 +30,10 @@ pipeline{
         stage('DockerHub Push'){
             steps{
                 withCredentials([string(credentialsId: 'Docker-password', variable: 'dockerhub')]) {
-                    sh "docker login -u vamshima -p ${dockerhub}"
+                    sh "sudo docker login -u vamshima -p ${dockerhub}"
                 }
                 
-                sh "docker push vamshima/jen-doc:${DOCKER_TAG} "
+                sh "sudo docker push vamshima/jen-doc:${DOCKER_TAG} "
             }
         }
         
