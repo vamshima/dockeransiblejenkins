@@ -22,7 +22,7 @@ pipeline{
         
         stage('Docker Build'){
             steps{
-                sh "docker build . -t vamshima:${DOCKER_TAG} "
+                sh "docker build . -t vamshima/jen-doc:${DOCKER_TAG} "
             }
         }
         
