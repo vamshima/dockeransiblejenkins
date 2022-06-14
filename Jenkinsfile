@@ -29,7 +29,7 @@ pipeline{
         
         stage('DockerHub Push'){
             steps{
-                withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhub')]) {
+                withCredentials([string(credentialsId: 'Docker-password', variable: 'dockerhub')]) {
                     sh "docker login -u vamshima -p ${dockerhub}"
                 }
                 
