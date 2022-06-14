@@ -29,7 +29,7 @@ pipeline{
         stage('DockerHub Push'){
             steps{
                 withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhub')]) {
-                    sh "docker login -u vamshima -p ${dockerHubPwd}"
+                    sh "docker login -u vamshima -p ${dockerhub}"
                 }
                 
                 sh "docker push vamshima/jen-doc:${DOCKER_TAG} "
