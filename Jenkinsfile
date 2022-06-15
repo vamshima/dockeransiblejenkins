@@ -26,8 +26,7 @@ pipeline{
                 sh "docker build . -t vamshima/jen-doc:${DOCKER_TAG} "
             }
         }
-        
-        
+                
         stage('DockerHub Push'){
             steps{
                 withCredentials([string(credentialsId: 'Docker-password', variable: 'dockerhub')]) {
